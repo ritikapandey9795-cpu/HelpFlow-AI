@@ -35,7 +35,12 @@ async function generateFastAI(prompt, maxOutputTokens = 120) {
     }
   });
 }
-app.use(cors());
+app.use(cors({
+  origin: "https://help-flow-ai.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 // Test route

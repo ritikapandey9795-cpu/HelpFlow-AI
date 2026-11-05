@@ -71,7 +71,7 @@ useEffect(() => {
     try {
       const token = sessionStorage.getItem("token");
 
-      const response = await fetch("http://localhost:5000/api/tickets", {
+      const response = await fetch("https://helpflow-ai-backend.onrender.com/api/tickets", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -122,7 +122,7 @@ if (!newTicket.title || !newTicket.description) {
     try {
       setError("");
       setIsSubmitting(true);
-      const response = await fetch("http://localhost:5000/api/tickets", {
+      const response = await fetch("https://helpflow-ai-backend.onrender.com/api/tickets", {
         method: "POST",
        headers: {
                  "Content-Type": "application/json",
@@ -166,7 +166,7 @@ if (!newTicket.title || !newTicket.description) {
       setError("");
 
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}/status`,
+        `https://helpflow-ai-backend.onrender.com/api/tickets/${ticketId}/status`,
         {
           method: "PATCH",
           headers: {
@@ -201,7 +201,7 @@ if (!newTicket.title || !newTicket.description) {
       setError("");
 
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${ticketId}/priority`,
+        `https://helpflow-ai-backend.onrender.com/api/tickets/${ticketId}/priority`,
         {
           method: "PATCH",
           headers: {
@@ -241,7 +241,7 @@ async function deleteTicket(ticketId) {
     if (!confirmDelete) return;
 
     const response = await fetch(
-      `http://localhost:5000/api/tickets/${ticketId}`,
+      `https://helpflow-ai-backend.onrender.com/api/tickets/${ticketId}`,
       {
          method: "DELETE",
             headers: {
@@ -280,7 +280,7 @@ async function deleteTicket(ticketId) {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/predict-category",
+        "https://helpflow-ai-backend.onrender.com/api/ai/predict-category",
         {
           method: "POST",
           headers: {
@@ -320,7 +320,7 @@ async function deleteTicket(ticketId) {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/predict-priority",
+        "https://helpflow-ai-backend.onrender.com/api/ai/predict-priority",
         {
           method: "POST",
           headers: {
@@ -361,7 +361,7 @@ async function deleteTicket(ticketId) {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/troubleshoot",
+        "https://helpflow-ai-backend.onrender.com/api/ai/troubleshoot",
         {
           method: "POST",
           headers: {
@@ -403,7 +403,7 @@ async function generateResolutionSummary() {
     setResolutionSummary("");
 
     const response = await fetch(
-      "http://localhost:5000/api/ai/resolution-summary",
+      "https://helpflow-ai-backend.onrender.com/api/ai/resolution-summary",
       {
         method: "POST",
         headers: {
@@ -554,7 +554,7 @@ const handleRegister = async (e) => {
   setAuthLoading(true);
 
   try {
-    const response = await fetch("http://localhost:5000/api/auth/register", {
+    const response = await fetch("https://helpflow-ai-backend.onrender.com/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -589,7 +589,7 @@ const handleLogin = async (e) => {
   setAuthLoading(true);
 
   try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("https://helpflow-ai-backend.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
